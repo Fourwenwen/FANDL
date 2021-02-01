@@ -1,1 +1,86 @@
-<html></html>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="./pra.css">
+    <style>
+        .timer {
+            font-size: 180%;
+            line-height: 1.5;
+            margin: 1em 0;
+            color: white;
+        }
+
+        .timer b {
+            color: rgb(161, 47, 47);
+        }
+    </style>
+</head>
+
+<body>
+<div class="box">
+    <h2>
+        Hello
+        <br>Lilian & Four
+    </h2>
+    <div class="timer">
+        <b id="d"></b> Days <b id="h"></b> Hours <b id="m"></b> Minutes <b id="s"></b> Seconds
+    </div>
+</div>
+<div class="monster">
+    <div class="eye">
+        <div class="eyeball"></div>
+    </div>
+    <div class="mouth"></div>
+</div>
+<div class="monster blue">
+    <div class="eye">
+        <div class="eyeball"></div>
+    </div>
+    <div class="mouth"></div>
+</div>
+
+<div class="pageLoading">
+    <div class="monster">
+        <div class="eye">
+            <div class="eyeball"></div>
+        </div>
+        <div class="mouth"></div>
+    </div>
+    <div class="loading">
+        <div class="bar"></div>
+    </div>
+</div>
+<script src="./pra.js"></script>
+<script>
+    function timer() {
+        window.setTimeout("show_date_time()", 1000);
+        var start = new Date("2021-01-01 14:00:00").getTime();
+        var t = new Date().getTime() - start;
+        var h = ~~(t / 1000 / 60 / 60 % 24);
+        if (h < 10) {
+            h = "0" + h;
+        }
+        var m = ~~(t / 1000 / 60 % 60);
+        if (m < 10) {
+            m = "0" + m;
+        }
+        var s = ~~(t / 1000 % 60);
+        if (s < 10) {
+            s = "0" + s;
+        }
+        document.getElementById('d').innerHTML = ~~(t / 1000 / 60 / 60 / 24);
+        document.getElementById('h').innerHTML = h;
+        document.getElementById('m').innerHTML = m;
+        document.getElementById('s').innerHTML = s;
+    }
+    timer();
+    setInterval(timer, 1000);
+</script>
+</body>
+
+</html>
